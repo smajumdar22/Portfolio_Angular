@@ -1,0 +1,205 @@
+/* =================================
+   Toolbar
+================================= */
+.portfolio-toolbar {
+  background: #0b0b0b;
+  color: #ffffff;
+  height: 72px;
+  padding: 0 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+
+  border-bottom: 1px solid rgba(127, 255, 212, 0.15);
+  box-shadow: none;
+  overflow: hidden;
+
+  animation: navbarFade 0.6s ease forwards;
+  transition: height 0.3s ease, padding 0.3s ease;
+}
+
+.portfolio-toolbar.shrink {
+  height: 60px;
+  padding: 0 1.5rem;
+}
+
+/* =================================
+   Brand
+================================= */
+.brand {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #7fffd4;
+  white-space: nowrap;
+}
+
+/* =================================
+   Desktop Navigation
+================================= */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  min-width: max-content;
+  flex-shrink: 0;
+
+  a {
+    color: #d0d0d0;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    position: relative;
+    padding: 0.25rem 0.5rem;
+
+    transition: color 0.25s ease, transform 0.25s ease;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: #7fffd4;
+      transform: translateX(-50%);
+      transition: width 0.3s ease;
+    }
+
+    &:hover {
+      color: #7fffd4;
+      transform: translateY(-2px);
+    }
+
+    &:hover::after,
+    &.active::after {
+      width: 18px;
+    }
+
+    &.active {
+      color: #ffffff;
+    }
+  }
+}
+
+/* =================================
+   Resume Button
+================================= */
+.resume-btn {
+  margin-left: 1rem;
+  color: #7fffd4;
+  border-color: #7fffd4;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.35rem 1.2rem;
+
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(127, 255, 212, 0.35),
+      transparent
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  &:hover::before {
+    transform: translateX(100%);
+  }
+}
+
+/* =================================
+   Mobile Controls
+================================= */
+.mobile-menu-btn {
+  display: none;
+  color: #ffffff;
+}
+
+/* =================================
+   Mobile Menu
+================================= */
+.mobile-menu {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+
+  background: #0b0b0b;
+  padding: 2rem 0;
+
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+
+  &.open {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  a {
+    color: #d0d0d0;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+
+    &:hover {
+      color: #7fffd4;
+    }
+  }
+}
+
+/* =================================
+   Responsive Rules
+================================= */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: inline-flex;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-menu {
+    display: none !important;
+  }
+}
+
+/* =================================
+   Animations
+================================= */
+@keyframes navbarFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

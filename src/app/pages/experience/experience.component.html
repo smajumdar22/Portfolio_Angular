@@ -1,0 +1,19 @@
+<section class="experience">
+  <h2 class="section-title">Experience</h2>
+
+  <div class="timeline">
+    <mat-card *ngFor="let job of experience" class="job-card">
+      <div class="header">
+        <h3>{{ job.role }}</h3>
+        <span class="company">{{ job.company }}</span>
+        <span class="duration">{{ job.duration }}</span>
+      </div>
+
+      <ul class="details">
+        <li *ngFor="let item of job.details">
+          {{ item }}
+        </li>
+      </ul>
+    </mat-card>
+  </div>
+</section>

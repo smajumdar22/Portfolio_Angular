@@ -1,0 +1,68 @@
+.resume {
+  background: #0b0b0b;
+  color: #ffffff;
+  padding: 5rem 2rem;
+}
+
+.resume-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7fffd4;
+  margin-bottom: 3rem;
+}
+
+/* Card */
+.resume-card {
+  background: #121212;
+  border-radius: 18px;
+  padding: 3rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+/* Description */
+.description {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #d0d0d0;
+  margin-bottom: 2.5rem;
+}
+
+/* CTA Button */
+.resume-link {
+  display: inline-block;
+  padding: 0.9rem 2.4rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #7fffd4, #00c9a7);
+  color: #0b0b0b;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(127, 255, 212, 0.35);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .resume {
+    padding: 3.5rem 1.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .resume-card {
+    padding: 2.25rem;
+  }
+}

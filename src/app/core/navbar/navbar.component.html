@@ -1,0 +1,38 @@
+<mat-toolbar class="portfolio-toolbar">
+  <span class="brand">Shubham Majumdar</span>
+
+  <nav class="nav-links">
+    <a mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a mat-button routerLink="/experience" routerLinkActive="active">Experience</a>
+    <a mat-button routerLink="/education" routerLinkActive="active">Education</a>
+    <a mat-button routerLink="/skills" routerLinkActive="active">Skills</a>
+    <a mat-button routerLink="/about" routerLinkActive="active">About</a>
+    <a mat-button routerLink="/contact" routerLinkActive="active">Contact</a>
+
+    <a mat-stroked-button class="resume-btn" routerLink="/resume">
+      Resume
+    </a>
+  </nav>
+
+  <button
+    mat-icon-button
+    class="mobile-menu-btn"
+    (click)="toggleMenu()"
+    aria-label="Toggle navigation"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="mobile-menu" [class.open]="menuOpen">
+  <a mat-button routerLink="/">Home</a>
+  <a mat-button routerLink="/experience">Experience</a>
+  <a mat-button routerLink="/education">Education</a>
+  <a mat-button routerLink="/skills">Skills</a>
+  <a mat-button routerLink="/about">About</a>
+  <a mat-button routerLink="/contact">Contact</a>
+
+  <a mat-stroked-button class="resume-btn" routerLink="/resume">
+    Resume
+  </a>
+</div>

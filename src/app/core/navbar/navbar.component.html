@@ -1,38 +1,22 @@
-<mat-toolbar class="portfolio-toolbar">
-  <span class="brand">Shubham Majumdar</span>
-
-  <nav class="nav-links">
-    <a mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-    <a mat-button routerLink="/experience" routerLinkActive="active">Experience</a>
-    <a mat-button routerLink="/education" routerLinkActive="active">Education</a>
-    <a mat-button routerLink="/skills" routerLinkActive="active">Skills</a>
-    <a mat-button routerLink="/about" routerLinkActive="active">About</a>
-    <a mat-button routerLink="/contact" routerLinkActive="active">Contact</a>
-
-    <a mat-stroked-button class="resume-btn" routerLink="/resume">
-      Resume
+<header class="nav-shell" [class.scrolled]="isScrolled">
+  <div class="nav-inner">
+    <a routerLink="/" class="nav-brand">
+      <span class="brand-initials">SM</span>
+      <span class="brand-name">Shubham Majumdar</span>
     </a>
-  </nav>
 
-  <button
-    mat-icon-button
-    class="mobile-menu-btn"
-    (click)="toggleMenu()"
-    aria-label="Toggle navigation"
-  >
-    <mat-icon>menu</mat-icon>
-  </button>
-</mat-toolbar>
+    <nav class="nav-links" [class.open]="menuOpen">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
+      <a routerLink="/experience" routerLinkActive="active" (click)="closeMenu()">Experience</a>
+      <a routerLink="/education" routerLinkActive="active" (click)="closeMenu()">Education</a>
+      <a routerLink="/skills" routerLinkActive="active" (click)="closeMenu()">Skills</a>
+      <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About</a>
+      <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
+      <a routerLink="/resume" class="nav-cta" (click)="closeMenu()">Resume</a>
+    </nav>
 
-<div class="mobile-menu" [class.open]="menuOpen">
-  <a mat-button routerLink="/">Home</a>
-  <a mat-button routerLink="/experience">Experience</a>
-  <a mat-button routerLink="/education">Education</a>
-  <a mat-button routerLink="/skills">Skills</a>
-  <a mat-button routerLink="/about">About</a>
-  <a mat-button routerLink="/contact">Contact</a>
-
-  <a mat-stroked-button class="resume-btn" routerLink="/resume">
-    Resume
-  </a>
-</div>
+    <button class="hamburger" (click)="toggleMenu()" [class.active]="menuOpen" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>

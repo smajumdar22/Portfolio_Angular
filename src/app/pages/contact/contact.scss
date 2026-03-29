@@ -1,75 +1,163 @@
+.contact-wrap { padding-top: 100px; }
+
 .contact {
-  background: #0b0b0b;
-  color: #ffffff;
-  padding: 5rem 2rem;
-}
-
-.contact-content {
-  max-width: 700px;
+  max-width: var(--max-w);
   margin: 0 auto;
+  padding: 4rem 3rem 6rem;
 }
 
-.section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #7fffd4;
-  margin-bottom: 3rem;
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 5rem;
+  align-items: start;
 }
 
-/* Card */
-.contact-card {
-  background: #121212;
-  border-radius: 16px;
-  padding: 2.5rem;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+.contact-pitch {
+  .pitch-text {
+    font-size: 1rem;
+    color: var(--text-dim);
+    line-height: 1.85;
+    margin-bottom: 1.5rem;
+  }
 }
 
-/* Rows */
-.contact-item {
+.contact-items {
+  margin-top: 3rem;
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
+  border: 1px solid var(--border);
 }
 
-/* Labels */
-.label {
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #7fffd4;
-  margin-bottom: 0.4rem;
-}
+.contact-item {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
+  cursor: pointer;
 
-/* Links */
-.contact-item a {
-  font-size: 1.05rem;
-  color: #d0d0d0;
-  text-decoration: none;
-  transition: color 0.2s ease, transform 0.2s ease;
+  &:last-child { border-bottom: none; }
 
   &:hover {
-    color: #ffffff;
-    transform: translateX(4px);
+    background: var(--gold-pale);
+    .ci-arrow, .ci-value { color: var(--gold); }
+  }
+
+  .ci-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .ci-value {
+    font-size: 0.9rem;
+    color: var(--text);
+    transition: color 0.3s;
+  }
+
+  .ci-arrow {
+    font-size: 1rem;
+    color: var(--muted);
+    transition: color 0.3s;
   }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .contact {
-    padding: 3.5rem 1.5rem;
+/* ─── Contact Card ─── */
+.contact-card {
+  border: 1px solid var(--border);
+  background: var(--ink-2);
+  position: sticky;
+  top: 6rem;
+}
+
+.cc-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4caf50;
+    flex-shrink: 0;
+    animation: pulse 2s infinite;
   }
 
-  .section-title {
-    font-size: 2rem;
+  .cc-tag {
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+}
+
+.cc-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.cc-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+
+  &:last-child { border-bottom: none; }
+
+  .cc-key {
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    width: 70px;
+    flex-shrink: 0;
   }
 
-  .contact-card {
-    padding: 2rem;
+  .cc-val {
+    font-size: 0.85rem;
+    color: var(--text);
   }
+}
+
+.cc-cta {
+  display: block;
+  margin: 1.5rem;
+  padding: 0.85rem;
+  background: var(--gold);
+  color: var(--ink);
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: all 0.3s;
+
+  &:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(76, 175, 80, 0); }
+}
+
+@media (max-width: 900px) {
+  .contact { padding: 3rem 1.5rem 4rem; }
+  .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+  .contact-card { position: static; }
+  .contact-item { grid-template-columns: 70px 1fr auto; gap: 1rem; }
 }

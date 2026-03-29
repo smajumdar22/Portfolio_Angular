@@ -1,19 +1,28 @@
-<section class="experience">
-  <h2 class="section-title">Experience</h2>
+<div class="exp-wrap page-enter">
+  <section class="experience">
+    <p class="section-label">Career</p>
+    <h2 class="section-title-h2">Where I've <em>shipped</em></h2>
 
-  <div class="timeline">
-    <mat-card *ngFor="let job of experience" class="job-card">
-      <div class="header">
-        <h3>{{ job.role }}</h3>
-        <span class="company">{{ job.company }}</span>
-        <span class="duration">{{ job.duration }}</span>
+    <div class="timeline">
+      <div class="timeline-item" *ngFor="let job of experience; let i = index">
+        <div class="timeline-meta">
+          <span class="timeline-duration mono">{{ job.duration }}</span>
+          <span class="timeline-company">{{ job.company }}</span>
+          <span class="timeline-tag" *ngIf="job.tag">{{ job.tag }}</span>
+        </div>
+
+        <div class="timeline-body">
+          <h3 class="timeline-role">{{ job.role }}</h3>
+
+          <ul class="timeline-details">
+            <li *ngFor="let item of job.details">{{ item }}</li>
+          </ul>
+
+          <div class="timeline-tech" *ngIf="job.tech">
+            <span class="tech-pill mono" *ngFor="let t of job.tech">{{ t }}</span>
+          </div>
+        </div>
       </div>
-
-      <ul class="details">
-        <li *ngFor="let item of job.details">
-          {{ item }}
-        </li>
-      </ul>
-    </mat-card>
-  </div>
-</section>
+    </div>
+  </section>
+</div>

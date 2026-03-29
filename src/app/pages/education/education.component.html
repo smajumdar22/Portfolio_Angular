@@ -1,15 +1,21 @@
-<section class="education">
-  <h2 class="section-title">Education</h2>
+<div class="edu-wrap page-enter">
+  <section class="education">
+    <p class="section-label">Education</p>
+    <h2 class="section-title-h2">Credentials &amp;<br/><em>Credentials</em></h2>
 
-  <div class="education-list">
-    <mat-card class="education-card" *ngFor="let edu of education">
-      <div class="header">
-        <h3>{{ edu.degree }}</h3>
-        <span class="duration">{{ edu.duration }}</span>
+    <div class="edu-grid">
+      <div class="edu-card featured" *ngFor="let edu of education; let i = index" [class.featured]="i === 0">
+        <div class="edu-card-top">
+          <span class="edu-year mono">{{ edu.duration }}</span>
+          <span class="edu-status" [class.active]="edu.active">{{ edu.active ? 'In Progress' : 'Completed' }}</span>
+        </div>
+
+        <h3 class="edu-degree">{{ edu.degree }}</h3>
+        <p class="edu-school">{{ edu.institution }}</p>
+        <p class="edu-location mono">{{ edu.location }}</p>
+
+        <p class="edu-note" *ngIf="edu.note">{{ edu.note }}</p>
       </div>
-
-      <p class="institution">{{ edu.institution }}</p>
-      <p class="location">{{ edu.location }}</p>
-    </mat-card>
-  </div>
-</section>
+    </div>
+  </section>
+</div>

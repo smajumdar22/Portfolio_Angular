@@ -1,205 +1,156 @@
-/* =================================
-   Toolbar
-================================= */
-.portfolio-toolbar {
-  background: #0b0b0b;
-  color: #ffffff;
-  height: 72px;
-  padding: 0 2rem;
+.nav-shell {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1.5rem 3rem;
+  transition: all 0.4s ease;
+  border-bottom: 1px solid transparent;
 
+  &.scrolled {
+    background: rgba(10, 10, 15, 0.92);
+    backdrop-filter: blur(20px);
+    padding: 1rem 3rem;
+    border-bottom-color: var(--border);
+  }
+}
+
+.nav-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: nowrap;
-
-  border-bottom: 1px solid rgba(127, 255, 212, 0.15);
-  box-shadow: none;
-  overflow: hidden;
-
-  animation: navbarFade 0.6s ease forwards;
-  transition: height 0.3s ease, padding 0.3s ease;
 }
 
-.portfolio-toolbar.shrink {
-  height: 60px;
-  padding: 0 1.5rem;
-}
-
-/* =================================
-   Brand
-================================= */
-.brand {
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #7fffd4;
-  white-space: nowrap;
-}
-
-/* =================================
-   Desktop Navigation
-================================= */
-.nav-links {
+.nav-brand {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  cursor: pointer;
 
-  min-width: max-content;
-  flex-shrink: 0;
+  .brand-initials {
+    width: 36px;
+    height: 36px;
+    background: var(--gold);
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+
+  .brand-name {
+    font-family: var(--font-ui);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text);
+    transition: color 0.3s;
+  }
+
+  &:hover .brand-name { color: var(--gold); }
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
 
   a {
-    color: #d0d0d0;
-    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
+    color: var(--text-dim);
+    transition: color 0.3s;
     position: relative;
-    padding: 0.25rem 0.5rem;
-
-    transition: color 0.25s ease, transform 0.25s ease;
 
     &::after {
       content: '';
       position: absolute;
-      left: 50%;
-      bottom: -6px;
+      bottom: -4px;
+      left: 0;
       width: 0;
-      height: 2px;
-      background: #7fffd4;
-      transform: translateX(-50%);
-      transition: width 0.3s ease;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.3s;
     }
 
+    &:hover, &.active {
+      color: var(--gold);
+      &::after { width: 100%; }
+    }
+  }
+
+  .nav-cta {
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 0.5rem 1.2rem;
+    letter-spacing: 0.15em;
+
+    &::after { display: none; }
     &:hover {
-      color: #7fffd4;
-      transform: translateY(-2px);
-    }
-
-    &:hover::after,
-    &.active::after {
-      width: 18px;
-    }
-
-    &.active {
-      color: #ffffff;
+      background: var(--gold);
+      color: var(--ink);
     }
   }
 }
 
-/* =================================
-   Resume Button
-================================= */
-.resume-btn {
-  margin-left: 1rem;
-  color: #7fffd4;
-  border-color: #7fffd4;
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  padding: 0.35rem 1.2rem;
-
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      120deg,
-      transparent,
-      rgba(127, 255, 212, 0.35),
-      transparent
-    );
-    transform: translateX(-100%);
-    transition: transform 0.6s ease;
-  }
-
-  &:hover::before {
-    transform: translateX(100%);
-  }
-}
-
-/* =================================
-   Mobile Controls
-================================= */
-.mobile-menu-btn {
-  display: none;
-  color: #ffffff;
-}
-
-/* =================================
-   Mobile Menu
-================================= */
-.mobile-menu {
-  position: fixed;
-  top: 72px;
-  left: 0;
-  right: 0;
-
-  background: #0b0b0b;
-  padding: 2rem 0;
-
+.hamburger {
   display: none;
   flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
 
-  opacity: 0;
-  transform: translateY(-10px);
-  pointer-events: none;
-
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 1000;
-
-  &.open {
-    display: flex;
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+  span {
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--text);
+    transition: all 0.3s;
+    transform-origin: center;
   }
 
-  a {
-    color: #d0d0d0;
-    font-size: 0.85rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-
-    &:hover {
-      color: #7fffd4;
-    }
+  &.active {
+    span:nth-child(1) { transform: translateY(6px) rotate(45deg); background: var(--gold); }
+    span:nth-child(2) { opacity: 0; }
+    span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); background: var(--gold); }
   }
 }
 
-/* =================================
-   Responsive Rules
-================================= */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+  .nav-shell { padding: 1.25rem 1.5rem; }
+  .nav-shell.scrolled { padding: 1rem 1.5rem; }
+
+  .hamburger { display: flex; }
+
   .nav-links {
-    display: none;
-  }
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 280px;
+    background: var(--ink-2);
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-left: 1px solid var(--border);
 
-  .mobile-menu-btn {
-    display: inline-flex;
-  }
-}
+    &.open { right: 0; }
 
-@media (min-width: 769px) {
-  .mobile-menu {
-    display: none !important;
-  }
-}
-
-/* =================================
-   Animations
-================================= */
-@keyframes navbarFade {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+    a { font-size: 0.85rem; }
+    .nav-cta { padding: 0.75rem 2rem; }
   }
 }

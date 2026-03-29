@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-resume',
   standalone: true,
-  imports: [MatCardModule],
+  imports: [CommonModule],
   templateUrl: './resume.component.html',
   styleUrls: ['./resume.component.scss']
 })

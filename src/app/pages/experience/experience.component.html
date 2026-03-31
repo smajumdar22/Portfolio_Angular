@@ -6,9 +6,9 @@
     <div class="timeline">
       <div class="timeline-item" *ngFor="let job of experience; let i = index">
         <div class="timeline-meta">
-          <span class="timeline-duration mono">{{ job.duration }}</span>
+          <span class="timeline-duration">{{ job.duration }}</span>
           <span class="timeline-company">{{ job.company }}</span>
-          <span class="timeline-tag" *ngIf="job.tag">{{ job.tag }}</span>
+          <span class="timeline-oneliner">{{ job.oneliner }}</span>
         </div>
 
         <div class="timeline-body">
@@ -19,7 +19,7 @@
           </ul>
 
           <div class="timeline-tech" *ngIf="job.tech">
-            <span class="tech-pill mono" *ngFor="let t of job.tech">{{ t }}</span>
+            <span class="tech-pill" *ngFor="let t of job.tech">{{ t }}</span>
           </div>
         </div>
       </div>

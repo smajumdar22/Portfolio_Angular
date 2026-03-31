@@ -18,8 +18,8 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(201, 168, 76, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201, 168, 76, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(201, 168, 76, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 168, 76, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
   mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
@@ -30,14 +30,16 @@
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-family: var(--f-main);
+  font-size: 0.68rem;
   letter-spacing: 0.12em;
+  font-weight: 500;
   color: var(--gold);
   border: 1px solid var(--border);
   padding: 0.4rem 1rem;
   margin-bottom: 2rem;
   animation: fadeUp 0.5s ease both;
+  text-transform: uppercase;
 }
 
 .pulse-dot {
@@ -59,9 +61,9 @@
   font-size: clamp(3.5rem, 8vw, 6.5rem);
   font-weight: 300;
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   color: var(--cream);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   animation: fadeUp 0.5s 0.1s ease both;
 
   em {
@@ -71,38 +73,15 @@
   }
 }
 
-/* Role row */
-.hero-role-row {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  animation: fadeUp 0.5s 0.2s ease both;
-}
-
-.hero-divider {
-  width: 40px;
-  height: 1px;
-  background: var(--gold);
-  flex-shrink: 0;
-}
-
-.hero-role {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--gold-light);
-}
-
 /* Bio */
 .hero-bio {
-  font-size: 1.05rem;
+  font-size: 1rem;
+  font-weight: 400;
   color: var(--text-dim);
-  line-height: 1.75;
-  max-width: 540px;
+  line-height: 1.8;
+  max-width: 520px;
   margin-bottom: 2.5rem;
-  animation: fadeUp 0.5s 0.25s ease both;
+  animation: fadeUp 0.5s 0.2s ease both;
 }
 
 /* Stats */
@@ -111,7 +90,7 @@
   align-items: center;
   gap: 2rem;
   margin-bottom: 2.5rem;
-  animation: fadeUp 0.5s 0.3s ease both;
+  animation: fadeUp 0.5s 0.25s ease both;
 }
 
 .stat {
@@ -119,20 +98,22 @@
   flex-direction: column;
 
   .stat-n {
-    font-family: var(--font-display);
-    font-size: 1.6rem;
-    font-weight: 600;
+    font-family: var(--f-main);
+    font-size: 1.5rem;
+    font-weight: 700;
     color: var(--gold);
     line-height: 1;
+    letter-spacing: -0.02em;
   }
 
   .stat-l {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.12em;
+    font-family: var(--f-main);
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
+    font-weight: 500;
     color: var(--muted);
-    margin-top: 0.25rem;
+    margin-top: 0.3rem;
   }
 }
 
@@ -147,18 +128,18 @@
   display: flex;
   gap: 1rem;
   margin-bottom: 2rem;
-  animation: fadeUp 0.5s 0.35s ease both;
+  animation: fadeUp 0.5s 0.3s ease both;
 }
 
 .btn-primary {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-family: var(--f-main);
+  font-size: 0.68rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   background: var(--gold);
   color: var(--ink);
   padding: 0.85rem 2rem;
-  font-weight: 500;
+  font-weight: 600;
   transition: all 0.3s;
 
   &:hover {
@@ -168,13 +149,14 @@
 }
 
 .btn-ghost {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-family: var(--f-main);
+  font-size: 0.68rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   border: 1px solid var(--border);
   color: var(--text);
   padding: 0.85rem 2rem;
+  font-weight: 500;
   transition: all 0.3s;
 
   &:hover {
@@ -187,16 +169,17 @@
 .hero-social {
   display: flex;
   gap: 1.5rem;
-  animation: fadeUp 0.5s 0.4s ease both;
+  animation: fadeUp 0.5s 0.35s ease both;
 }
 
 .social-link {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-family: var(--f-main);
+  font-size: 0.65rem;
   letter-spacing: 0.1em;
+  font-weight: 500;
   color: var(--muted);
   text-transform: uppercase;
   transition: color 0.3s;
@@ -218,7 +201,7 @@
     content: '';
     position: absolute;
     inset: -1px;
-    border: 1px solid var(--gold);
+    border: 1px solid var(--border);
     z-index: 2;
     pointer-events: none;
   }
@@ -246,19 +229,22 @@
   .img-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(201, 168, 76, 0.08), transparent 50%);
+    background: linear-gradient(135deg, rgba(201, 168, 76, 0.06), transparent 50%);
     z-index: 1;
   }
 }
 
 .hero-tag {
   position: absolute;
-  font-size: 0.65rem;
-  letter-spacing: 0.12em;
+  font-size: 0.62rem;
+  font-family: var(--f-main);
+  font-weight: 500;
+  letter-spacing: 0.1em;
   color: var(--gold);
   background: rgba(10, 10, 15, 0.85);
   border: 1px solid var(--border);
   padding: 0.35rem 0.75rem;
+  text-transform: uppercase;
 
   &.tag-1 { top: 1.5rem; right: -1rem; }
   &.tag-2 { top: 50%; right: -1.5rem; transform: translateY(-50%); }
@@ -275,8 +261,10 @@
 .value-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
+  gap: 0;
   border: 1px solid var(--border);
+  max-width: var(--max-w);
+  margin: 0 auto;
 }
 
 .value-card {
@@ -285,31 +273,36 @@
   transition: background 0.3s;
 
   &:last-child { border-right: none; }
-
   &:hover { background: var(--gold-pale); }
 
   .value-icon {
     display: block;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: var(--gold);
     margin-bottom: 1.25rem;
   }
 
   h3 {
-    font-family: var(--font-ui);
-    font-size: 0.85rem;
+    font-family: var(--f-main);
+    font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--cream);
     margin-bottom: 0.75rem;
   }
 
   p {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
+    font-weight: 400;
     color: var(--text-dim);
-    line-height: 1.7;
+    line-height: 1.75;
   }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
 }
 
 /* ─── RESPONSIVE ─── */
@@ -321,7 +314,6 @@
     gap: 3rem;
   }
 
-  .hero-role-row { justify-content: center; }
   .hero-bio { margin-left: auto; margin-right: auto; }
   .hero-stats { justify-content: center; }
   .hero-actions { justify-content: center; }

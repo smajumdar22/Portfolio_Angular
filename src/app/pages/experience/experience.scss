@@ -6,81 +6,116 @@
   padding: 4rem 3rem 6rem;
 }
 
+.section-label {
+  font-family: var(--f-main);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+
+  &::before {
+    content: '';
+    width: 2rem;
+    height: 1px;
+    background: var(--gold);
+  }
+}
+
+.section-title-h2 {
+  font-family: var(--f-main);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 300;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  margin-bottom: 3.5rem;
+
+  em {
+    font-style: italic;
+    color: var(--gold);
+  }
+}
+
 .timeline {
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
 .timeline-item {
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 220px 1fr;
   gap: 3rem;
   padding: 2.5rem 0;
   border-top: 1px solid var(--border);
-  transition: background 0.3s;
+  transition: background 0.25s;
 
   &:last-child { border-bottom: 1px solid var(--border); }
-
   &:hover { background: var(--gold-pale); padding-left: 1rem; padding-right: 1rem; margin: 0 -1rem; }
 }
 
 .timeline-meta {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.4rem;
   padding-top: 0.2rem;
 }
 
 .timeline-duration {
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
+  font-family: var(--f-main);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   color: var(--gold);
   text-transform: uppercase;
 }
 
 .timeline-company {
-  font-family: var(--font-ui);
-  font-size: 1.1rem;
+  font-family: var(--f-main);
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--cream);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.01em;
 }
 
-.timeline-tag {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.1em;
+.timeline-oneliner {
+  font-family: var(--f-main);
+  font-size: 0.72rem;
+  font-weight: 400;
   color: var(--muted);
-  text-transform: uppercase;
-  border: 1px solid var(--border);
-  padding: 0.2rem 0.6rem;
-  width: fit-content;
+  line-height: 1.55;
+  margin-top: 0.1rem;
 }
 
 .timeline-body { padding-top: 0.2rem; }
 
 .timeline-role {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 400;
+  font-family: var(--f-main);
+  font-size: 1.1rem;
+  font-weight: 600;
   color: var(--text);
   margin-bottom: 1.25rem;
   line-height: 1.3;
-  font-style: italic;
+  letter-spacing: -0.01em;
 }
 
 .timeline-details {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.65rem;
   margin-bottom: 1.5rem;
 
   li {
-    font-size: 0.9rem;
+    font-family: var(--f-main);
+    font-size: 0.875rem;
+    font-weight: 400;
     color: var(--text-dim);
-    line-height: 1.65;
+    line-height: 1.7;
     padding-left: 1.25rem;
     position: relative;
 
@@ -88,7 +123,7 @@
       content: '';
       position: absolute;
       left: 0;
-      top: 0.55em;
+      top: 0.6em;
       width: 0.5rem;
       height: 1px;
       background: var(--gold);
@@ -103,8 +138,10 @@
 }
 
 .tech-pill {
-  font-size: 0.6rem;
+  font-family: var(--f-main);
+  font-size: 0.58rem;
   letter-spacing: 0.1em;
+  font-weight: 600;
   text-transform: uppercase;
   color: var(--gold);
   background: var(--gold-pale);
